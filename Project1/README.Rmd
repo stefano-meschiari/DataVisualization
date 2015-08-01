@@ -72,3 +72,6 @@ The plot above shows the temperature anomaly (in degrees Celsius) as a function 
 The temperature anomaly is plotted as a heat map, spanning from -2°C to +2°C. Latitude (on the y-axis) is divided into 8 chunks spanning from 90° south to 90° north.
 
 This plot shows that the inter-year temperature variations are stronger at the highest latitudes (64°-90°), with the highest temperature anomaly peaks reached in the North Pole (top band). 
+
+## Code
+The code to reproduce the two visualizations is available [here].
