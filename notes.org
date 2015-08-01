@@ -1,0 +1,33 @@
+* Week 1
+** Forum post: http://fivethirtyeight.com/features/what-12-months-of-record-setting-temperatures-looks-like-across-the-u-s/
+- Originally found on Twitter, from the @DataIsBeautiful handle.
+- Both the data and the procedure is available at https://github.com/fivethirtyeight/data/tree/master/us-weather-history
+
+** Types of presentations
+- Presentation (i.e. slides, static, polished)
+- Interactive visualization (can interact with data, not polished)
+- Interactive storytelling (polished, reacts to input of mass audience) 
+
+** Fitt's law
+600 ms + 240ms log (1+D/S)
+
+D is distance to target, S is size of target. Example: pulldown menu, is it better to have larger or smaller menu items? Doesn't matter, since D \approx S.
+
+** Human computation 
+- Visual/auditory store -> working memory
+- Working memory: up to 7 items, decay is of order 7 seconds
+- Sensory memory is visual memory (iconic, echoic, haptic, arousal)
+*** Long-term memory
+- Episodic & semantic
+- Total time & distribution tend to improve move from short to long term memory; meaning (concrete > abstract)
+- Decay is logarithmic
+*** Cognitive processor
+- Logic, deductive reasoning: make conclusion based on data
+- Inductive reasoning: make generalizations
+
+- Abductive reasoning (why?): modeling, cognitive dissonance
+*** Eyes
+- Brightness -> rods, color -> cones
+- Shade context, color context
+- Lateral inhibition: an excited neuron can limit the activity of a neighboring neuron.
+
