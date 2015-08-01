@@ -6,6 +6,7 @@ output:
   html_document: 
     fig_height: 6
     fig_width: 8
+    theme: journal
 ---
 This document contains two visualizations of the data contained in [this dataset from the GISTEMP site](ExcelFormattedGISTEMPData2CSV.csv). The original dataset is described [here](http://data.giss.nasa.gov/gistemp/). 
 
@@ -74,4 +75,4 @@ The temperature anomaly is plotted as a heat map, spanning from -2°C to +2°C. 
 This plot shows that the inter-year temperature variations are stronger at the highest latitudes (64°-90°), with the highest temperature anomaly peaks reached in the North Pole (top band). 
 
 ## Code
-The code to reproduce the two visualizations is available [here].
+The code to reproduce the two visualizations is available [here](https://github.com/stefano-meschiari/DataVisualization/tree/master/Project1).
