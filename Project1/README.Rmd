@@ -12,7 +12,7 @@ This document contains two visualizations of the data contained in [this dataset
 
 Briefly, the original dataset contains temperature anomalies (averaged over the year, measured in units of 0.01 degrees Celsius) as a function of time (year) and latitude. Temperature measurements are scaled against the 1950-1981 period. 
 
-This document contains both the visualizations, and the R code used to produce them. Each plot has an interactive version hosted on plot.ly.
+This document contains both the visualizations, and the R code used to produce them. Each plot has an interactive version hosted on plot.ly. 
 
 ## Yearly global temperature anomaly 
 #### [Interactive Version](https://plot.ly/~exostefanom/31.embed)
@@ -75,4 +75,4 @@ The temperature anomaly is plotted as a heat map, spanning from -2°C to +2°C. 
 This plot shows that the inter-year temperature variations are stronger at the highest latitudes (64°-90°), with the highest temperature anomaly peaks reached in the North Pole (top band). 
 
 ## Code
-The code to reproduce the two visualizations is available [here](https://github.com/stefano-meschiari/DataVisualization/tree/master/Project1).
+The code to reproduce the two visualizations is available [here](https://github.com/stefano-meschiari/DataVisualization/tree/master/Project1). 

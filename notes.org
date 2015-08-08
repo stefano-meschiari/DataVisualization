@@ -31,3 +31,34 @@ D is distance to target, S is size of target. Example: pulldown menu, is it bett
 - Shade context, color context
 - Lateral inhibition: an excited neuron can limit the activity of a neighboring neuron.
 
+
+* Week 3
+** Graphs
+*** Nodes & edge
+- Planar graph: none of the edges cross
+- Isomorphic == same embeddings
+- Directed/undirected, cyclic/acyclic
+- In/out degree: # of edges going in/out of a node
+*** Tree
+- Minimally connected
+- n nodes, n-1 edges
+- Can be seen as directed, with children pointing to parents
+*** Social network power law
+- Many nodes with few interactions
+- Nodes with degree x ~ x^-\alpha
+- E.g. yeast proteins have \alpha ~ -1.7
+*** Adjacency matrix
+- Square matrix, N x N, N = # of nodes
+- A_{i, j} = 1 if i, j nodes connected
+** Planar embedding
+- Convert into a 2D graph without edge crossings
+- Laplacian matrix, L_ij = 1/deg(i) for an edge between i and j
+** Graph visualization & layout
+- GEM force: spring force between nodes
+- High degree nodes should be closer to the central
+- Simplification: remove low centrality nodes
+- Edge bundles
+** Tree maps
+** PCA (Principal component analysis)
+- Reduce dimensionality of data by looking at the directions that give the largest variations
+
