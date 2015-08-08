@@ -1,0 +1,71 @@
+---
+title: "Data Visualization - Project 2"
+author: "Stefano Meschiari"
+date: "August 1, 2015"
+output: 
+  html_document: 
+    fig_height: 6
+    fig_width: 8
+    theme: journal
+---
+This document contains my visualization of the "Astrophysics Collaborations" dataset (M. E. J. Newman, Proc. Natl. Acad. Sci. USA 98, 404-409, 2001). In this data, astronomers were connected if they co-authored a scientific paper together. The network of authors was  derived by analyzing data from the astro-ph section of the ArXiv (a repository of scientific papers and preprints). The raw data is available [here](https://networkdata.ics.uci.edu/data.php?id=13).
+
+```{r, echo=FALSE, cache=TRUE, warnings=FALSE, message=FALSE}
+library(networkD3)
+library(igraph)
+library(rCharts)
+library(MASS)
+library(ggplot2)
+data <- read_graph('astro-ph/astro-ph.gml', 'gml')
+```
+## Graph
+The dataset contains 16,706 nodes and 121,251 edges. Given the sheer number of geometric elements that would be required, I took a random sample of the network comprising 500 authors. The plot shows the connection between authors and their co-authors. 
+
+The structure of the network is not immediately evident from the graph alone, but there are a couple of immediate features: (1) two and three-author networks are very common (see next section); (2) several portion of the graph resemble trees, where nodes have several long branches with children and grandchildren (likely due to advisorship in academia).
+
+The plot is drawn using D3.js and networkD3; you can zoom in by scrolling inside the plot rectangle.
+
+```{r, cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
+library(igraph)
+library(networkD3)
+indices <- sample(1:16706, 16706-750)
+d2 <- delete.vertices(data, indices)
+df <- get.data.frame(d2, 'both')
+df$edges$from <- df$vertices$label[df$edges$from]
+df$edges$to <- df$vertices$label[df$edges$to]
+
+simpleNetwork(df$edges, zoom=TRUE)
+```
+
+## Structure
+The following plot shows the distribution of the degrees for each author (i.e., the number of co-authors connected to each author). It shows the power-law distribution that is [typical for networks](https://en.wikipedia.org/wiki/Scale-free_network), where N(k) ~ k<sup>-a</sup>, where a is typically between 2 and 3 for large k (k is the number of edges around each node, and N is the number of nodes).
+
+There is a clear "knee" in the connectedness of authors around k ~ 30 (30 co-authors). For k > 30, the number of authors with a given number of co-authors decreases very quickly. This might reflect a sort of "saturation", given the finite amount of authors available in each sub-field of Astronomy available for collaborations. I plotted two power-law fits for k < 30 and k > 30.
+
+<div class="two">
+```{r, cache=TRUE, echo=FALSE, warning=FALSE, message=FALSE}
+degs <- degree(data, loops=FALSE)
+# Only shows degs > 0
+degs <- degs[degs > 0]
+# Bin data
+h <- hist(degs, breaks=logseq(1, max(degs), length.out=100), plot=FALSE)
+d <- data.frame(x=h$breaks[-length(h$breaks)], y=h$counts)
+d <- d[d$y > 0 & d$x > 0, ]
+l1 <- rlm(log10(y) ~ log10(x), d[d$x < 50, ])
+l2 <- rlm(log10(y) ~ log10(x), d[d$x > 50, ])
+
+d$pred1 <- 10^predict(l1, d)
+d$pred2 <- 10^predict(l2, d)
+
+ggplot(data=d) +
+  geom_point(aes(x=x, y=y), size=4, alpha=1) +
+  geom_line(aes(x=x, y=pred1, color='Fit for k < 30'), lty='dashed') +
+  geom_line(aes(x=x, y=pred2, color='Fit for k > 30'), lty='dashed') +
+  xlab("Degrees (k)") +
+  ylab("Number of authors") +
+  scale_x_log10(limits=c(1, 150)) +
+  scale_y_log10(limits=c(1, 1e4)) +
+  scale_color_discrete(guide=guide_legend(title=element_blank()))
+```
+
+</div>
