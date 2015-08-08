@@ -23,7 +23,7 @@ The dataset contains 16,706 nodes and 121,251 edges. Given the sheer number of g
 
 The structure of the network is not immediately evident from the graph alone, but there are a couple of immediate features: (1) two and three-author networks are very common (see next section); (2) several portion of the graph resemble trees, where nodes have several long branches with children and grandchildren (likely due to advisorship in academia).
 
-The plot is drawn using D3.js and networkD3; you can zoom in by scrolling inside the plot rectangle.
+The plot is drawn using D3.js and networkD3; you can zoom in by scrolling inside the plot rectangle, and drag the mouse to move the graph around.
 
 ```{r, cache=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
 library(igraph)
