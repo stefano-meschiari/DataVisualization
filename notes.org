@@ -31,3 +31,19 @@ D is distance to target, S is size of target. Example: pulldown menu, is it bett
 - Shade context, color context
 - Lateral inhibition: an excited neuron can limit the activity of a neighboring neuron.
 
+* Week 4
+Schneider's mantra:
+- High level overview
+- Zoom and filter
+- Details on demand
+
+** Database visualization
+*** Definitions
+- OLAP: OnLine Analytical Processing
+- Data Cube: N-d spreadsheet
+- Dimension: key
+- Measure: value
+- Cell: element holding the specific value for each of the dimension
+*** Aggregation
+- Reduce dimensionality
+
